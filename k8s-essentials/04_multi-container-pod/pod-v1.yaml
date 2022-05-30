@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: container-a
+      image: alpine:3.16.0
+      command:
+        - "/bin/sh"
+      args:
+        - "-c"
+        - "while true; do echo hello A; sleep 1; done;"
+    - name: container-b
+      image: alpine:3.16.0
+      command:
+        - "/bin/sh"
+      args:
+        - "-c"
+        - "while true; do echo hello B; sleep 1; done;"

@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: alpine
+          image: alpine:3.16.0
+          command: ["sleep"]
+          args: ["10"]
+      restartPolicy: Never

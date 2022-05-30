@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: alpine
+              image: alpine:3.16.0
+              command: ["/bin/sh"]
+              args: ["-c", "date"]
+          restartPolicy: OnFailure
+  successfulJobsHistoryLimit: 2
