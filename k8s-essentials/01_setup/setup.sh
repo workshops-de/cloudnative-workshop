@@ -2,7 +2,7 @@
 set -e
 
 PROJECT_COUNT=$(gcloud projects list --format json | jq .[].projectId | wc -l)
-if (( PROJECT_COUNT == 1 )): then
+if (( PROJECT_COUNT == 1 )); then
   PROJECT_ID=$(gcloud projects list --format json | jq .[].projectId | tr -d \")
   echo "Project: $PROJECT_ID"
 fi
@@ -40,10 +40,10 @@ then
 fi
 
 # Cluster
-has_cluster=`gcloud beta container clusters list --filter="name=$CLUSTER_NAME" --format="value(name)" --project=$PROJECT_NAME`
+has_cluster=`gcloud beta container clusters list --filter="name=$CLUSTER_NAME" --format="value(name)" --project=$PROJECT_ID`
 if [ -z "$has_cluster" ]
 then
-  gcloud beta container --project "trainer-christian" clusters create $CLUSTER_NAME \
+  gcloud beta container --project $PROJECT_ID clusters create $CLUSTER_NAME \
     --zone $ZONE --cluster-version "1.23.6-gke.1500" \
     --no-enable-basic-auth  --release-channel "None" \
     --machine-type "n2-standard-4" --image-type "COS_CONTAINERD" \
