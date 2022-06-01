@@ -60,7 +60,7 @@ then
 fi
 
 # Firewall Ingress
-has_firewall_ingress=`gcloud compute firewall-rules list --filter="$NETWORK_NAME-ingress-gateway" --format="value(name)" --project=$PROJECT_NAME`
+has_firewall_ingress=`gcloud compute firewall-rules list --filter="$NETWORK_NAME-ingress-gateway" --format="value(name)" --project=$PROJECT_ID`
 
 if [ -z "$has_firewall_ingress" ]
 then
@@ -73,7 +73,7 @@ then
 fi
 
 # Firewall SSH
-has_firewall_ssh=`gcloud compute firewall-rules list --filter="$NETWORK_NAME-ssh" --format="value(name)" --project=$PROJECT_NAME`
+has_firewall_ssh=`gcloud compute firewall-rules list --filter="$NETWORK_NAME-ssh" --format="value(name)" --project=$PROJECT_ID`
 
 if [ -z "$has_firewall_ssh" ]
 then
@@ -86,7 +86,7 @@ then
 fi
 
 # Firewall NodePorts
-has_firewall_nodeport=`gcloud compute firewall-rules list --filter="$NETWORK_NAME-nodeport" --format="value(name)" --project=$PROJECT_NAME`
+has_firewall_nodeport=`gcloud compute firewall-rules list --filter="$NETWORK_NAME-nodeport" --format="value(name)" --project=$PROJECT_ID`
 
 if [ -z "$has_firewall_nodeport" ]
 then
