@@ -98,6 +98,9 @@ then
     --rules=tcp:30000-32767
 fi
 
+echo 'export USE_GKE_GCLOUD_AUTH_PLUGIN=True' >> ~/.bashrc
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
 # connect to cluster
 gcloud container clusters get-credentials $CLUSTER_NAME
-echo 'source <(kubectl completion bash)' >> ~/.bashrc && source ~/.bashrc
