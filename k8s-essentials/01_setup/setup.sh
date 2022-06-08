@@ -103,4 +103,4 @@ echo 'source <(kubectl completion bash)' >> ~/.bashrc
 source ~/.bashrc
 
 # connect to cluster
-gcloud container clusters get-credentials $CLUSTER_NAME
+USE_GKE_GCLOUD_AUTH_PLUGIN=True gcloud container clusters get-credentials $CLUSTER_NAME
