@@ -1,2 +1,2 @@
-FROM alpine:3.16.0
+FROM ubuntu:20.04
 ENTRYPOINT ["ps", "aux"]
