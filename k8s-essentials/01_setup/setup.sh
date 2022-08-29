@@ -44,7 +44,7 @@ has_cluster=`gcloud beta container clusters list --filter="name=$CLUSTER_NAME" -
 if [ -z "$has_cluster" ]
 then
   gcloud beta container --project $PROJECT_ID clusters create $CLUSTER_NAME \
-    --zone $ZONE --cluster-version "1.23.6-gke.1500" \
+    --zone $ZONE --cluster-version "1.23.7-gke.1400" \
     --no-enable-basic-auth  --release-channel "None" \
     --machine-type "n2-standard-4" --image-type "COS_CONTAINERD" \
     --disk-type "pd-standard" --disk-size "100" \
