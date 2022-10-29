@@ -12,7 +12,6 @@ spec:
         requests:
           cpu: 50m
   tolerations:
-    - key: "foo"
-      operator: "Equal"
-      value: "bar"
+    - key: "gpu"
+      operator: "Exists"
       effect: "NoSchedule"
