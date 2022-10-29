@@ -5,19 +5,20 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx
+  ingressClassName: nginx-public
   rules:
-    - http:
+    - host: app-<user name>.<cluster name>.workshops.isium.de
+      http:
         paths:
-          - path: /green
-            pathType: Prefix
+          - pathType: Prefix
+            path: /green
             backend:
               service:
                 name: green
                 port:
                   number: 80
-          - path: /blue
-            pathType: Prefix
+          - pathType: Prefix
+            path: /blue
             backend:
               service:
                 name: blue
