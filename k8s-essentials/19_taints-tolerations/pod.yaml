@@ -3,6 +3,16 @@ kind: Pod
 metadata:
   name: my-pod
 spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: dedicated
+                operator: In
+                values:
+                  - "true"
   containers:
     - name: my-pod
       image: nginxdemos/hello:0.3
