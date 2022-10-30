@@ -1,0 +1,20 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: gitea-rules
+spec:
+  groups:
+    - name: <username>.gitea.rules
+      rules:
+        - alert: <username>_IssuesIncreaseToHigh
+          annotations:
+            description: >-
+              There are 2 or more new issues in the gitea instance {{ $labels.job }}/{{
+              $labels.service }} in {{ $labels.namespace }} namespace.
+            summary: 2 or more issues in the last 3min.
+          expr: >-
+            increase(gitea_issues{namespace=~"<namespace>"}[3m]) >= 2
+          for: 1m
+          labels:
+            severity: warning

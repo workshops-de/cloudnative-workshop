@@ -4,8 +4,9 @@ metadata:
   name: my-pod
 spec:
   containers:
-    - name: nginx
-      image: nginx:1.19.2
+    - name: my-pod
+      image: busybox
+      command: [ "exit", "1" ]
       resources:
         limits:
           cpu: 50m

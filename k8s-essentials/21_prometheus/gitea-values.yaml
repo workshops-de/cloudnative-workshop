@@ -1,0 +1,45 @@
+---
+ingress:
+  enabled: true
+  className: nginx-public
+  hosts:
+    - host: git-<username>.test.workshops.isium.de
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+  limits:
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+persistence:
+  enabled: true
+  size: 2Gi
+
+gitea:
+  admin:
+    username: gitea_admin
+    password: foosh5Eeph
+    email: "gitea@local.domain"
+  config:
+    server:
+      ROOT_URL: https://git-<username>.test.workshops.isium.de
+
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      postgresqlDatabase: gitea
+      postgresqlUsername: gitea
+      postgresqlPassword: boo1ALohch
+      servicePort: 5432
+  persistence:
+    size: 2Gi
