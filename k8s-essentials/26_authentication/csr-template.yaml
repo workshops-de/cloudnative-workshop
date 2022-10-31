@@ -1,0 +1,10 @@
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: $USERNAME
+spec:
+  request: $CSR
+  signerName: kubernetes.io/kube-apiserver-client
+  expirationSeconds: 86400  # 1 day
+  usages:
+    - client auth
