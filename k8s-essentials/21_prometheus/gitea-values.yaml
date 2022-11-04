@@ -3,7 +3,7 @@ ingress:
   enabled: true
   className: nginx-public
   hosts:
-    - host: git-<username>.test.workshops.isium.de
+    - host: git-<username>.<clustername>.workshops.isium.de
       paths:
         - path: /
           pathType: Prefix
@@ -26,7 +26,7 @@ gitea:
     email: "gitea@local.domain"
   config:
     server:
-      ROOT_URL: https://git-<username>.test.workshops.isium.de
+      ROOT_URL: https://git-<username>.<clustername>.workshops.isium.de
 
   metrics:
     enabled: true
