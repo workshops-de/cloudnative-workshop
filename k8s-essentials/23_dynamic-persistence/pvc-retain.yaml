@@ -3,12 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-pvc
 spec:
-  storageClassName: ""
   accessModes:
     - ReadWriteOnce
+  storageClassName: my-storageclass-retain
   resources:
     requests:
       storage: 1Gi
-  selector:
-    matchLabels:
-      type: my-pv
