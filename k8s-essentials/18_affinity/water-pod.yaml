@@ -5,6 +5,8 @@ metadata:
   labels:
     app: water
 spec:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: default-pool
   containers:
     - name: water
       image: nginxdemos/hello:0.3
