@@ -8,6 +8,11 @@ metadata:
 data:
   gitea-<username>.json: |-
     {
+      "timezone": "browser",
+      "title": "USER: <username> / Gitea",
+      "uid": null,
+      "version": null,
+      "weekStart": "",
       "annotations": {
         "list": [
           {
@@ -1315,10 +1320,5 @@ data:
           "2h",
           "1d"
         ]
-      },
-      "timezone": "browser",
-      "title": "USER: <username> / Gitea",
-      "uid": null,
-      "version": null,
-      "weekStart": ""
+      }
     }
