@@ -1,0 +1,20 @@
+---
+resources:
+  - ../base
+
+namePrefix: prod-
+
+images:
+  - name: nginxdemos/hello
+    newTag: "0.3"
+
+patches:
+  - path: resources.yml
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          kubernetes.io/os: linux
+    target:
+      kind: Deployment
+      name: myapp
