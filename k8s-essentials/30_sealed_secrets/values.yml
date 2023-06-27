@@ -1,0 +1,12 @@
+---
+fullnameOverride: sealed-secrets-controller
+
+metrics:
+  serviceMonitor:
+    enabled: true
+    labels:
+      release: main
+  dashboards:
+    create: true
+    labels:
+      grafana_dashboard: "1"
