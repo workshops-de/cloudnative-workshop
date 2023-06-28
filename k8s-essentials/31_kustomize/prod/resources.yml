@@ -10,8 +10,8 @@ spec:
         - name: myapp
           resources:
             limits:
-              cpu: 2000m
-              memory: 2048Mi
+              cpu: 500m
+              memory: 512Mi
             requests:
-              cpu: 2000m
-              memory: 2048Mi
+              cpu: 128m
+              memory: 256Mi
