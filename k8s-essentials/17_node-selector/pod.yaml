@@ -7,4 +7,4 @@ spec:
     - name: nginx
       image: nginxdemos/hello:0.3
   nodeSelector:
-    cloud.google.com/gke-nodepool: default-pool
+    workshops.de/special-node: "true"
