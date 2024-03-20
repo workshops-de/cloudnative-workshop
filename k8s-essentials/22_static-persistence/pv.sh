@@ -16,7 +16,7 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: /tmp/my-pv-${i}" | kubectl create -f -
 done
