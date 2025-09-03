@@ -24,9 +24,6 @@ gitea:
     username: gitea_admin
     password: foosh5Eeph
     email: "gitea@local.domain"
-  config:
-    server:
-      ROOT_URL: https://git-<username>.<clustername>.spaces.workshops.de
 
   metrics:
     enabled: true
@@ -37,9 +34,19 @@ postgresql:
   enabled: true
   global:
     postgresql:
-      postgresqlDatabase: gitea
-      postgresqlUsername: gitea
-      postgresqlPassword: boo1ALohch
-      servicePort: 5432
-  persistence:
-    size: 2Gi
+      auth:
+        username: gitea
+        password: boo1ALohch
+        database: gitea
+  primary:
+    persistence:
+      size: 1Gi
+
+postgresql-ha:
+  enabled: false
+
+valkey:
+  enabled: true
+
+valkey-cluster:
+  enabled: false
